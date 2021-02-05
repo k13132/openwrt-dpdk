@@ -36,21 +36,21 @@ define Package/libdpdk
 endef
 
 define Package/libdpdk/description
-	DPDK is a set of libraries and drivers for fast packet processing.
-	It supports many processor architectures and both FreeBSD and Linux.
+  DPDK is a set of libraries and drivers for fast packet processing.
+It supports many processor architectures and both FreeBSD and Linux.
 endef
 
 define Package/dpdk-tools
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libdpdk
+  DEPENDS:=+libdpdk +python3-light
   TITLE:=Set of tools for fast packet processing based on DPDK
   URL:=https://www.dpdk.org
 endef
 
 define Package/dpdk-tools/description
-        DPDK is a set of libraries and drivers for fast packet processing.
-        It supports many processor architectures and both FreeBSD and Linux.
+  DPDK is a set of libraries and drivers for fast packet processing.
+It supports many processor architectures and both FreeBSD and Linux.
 endef
 
 define Build/InstallDev
@@ -73,7 +73,9 @@ endef
 		
 define Package/dpdk-tools/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-devbind.py $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-pdump $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-proc-info $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,libdpdk))
