@@ -42,5 +42,11 @@ define KernelPackage/vfio-pci/description
 use of PCI drivers using the VFIO framework.
 endef
 
+define Build/Configure
+endef
+
+define Build/Compile
+endef
+
 $(eval $(call KernelPackage,vfio-pci))
 

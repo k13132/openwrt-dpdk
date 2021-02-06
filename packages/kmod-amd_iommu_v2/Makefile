@@ -27,7 +27,7 @@ define KernelPackage/amd_iommu_v2
      CONFIG_AMD_IOMMU=y \
      CONFIG_IRQ_REMAP=y \
      CONFIG_AMD_IOMMU_V2=m
-  DEPENDS:= @PCI_SUPPORT @TARGET_x86_64
+  DEPENDS:= @PCI_SUPPORT @TARGET_x86_64 +kernel
   FILES:= $(LINUX_DIR)/drivers/iommu/amd_iommu_v2.ko
   AUTOLOAD:=$(call AutoProbe,amd_iommu_v2)
 endef
@@ -36,6 +36,12 @@ define KernelPackage/amd_iommu_v2/description
   This option enables support for the AMD IOMMUv2 features
 of the IOMMU hardware. Select this option if you want
 to use devices that suppor the PCI PRI and PASID interface.
+endef
+
+define Build/Configure
+endef
+
+define Build/Compile
 endef
 
 $(eval $(call KernelPackage,amd_iommu_v2))

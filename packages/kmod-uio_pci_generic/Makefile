@@ -37,5 +37,11 @@ compliant and PCI Express card. It is useful, primarily,
 for virtualization scenarios.
 endef
 
+define Build/Configure
+endef
+
+define Build/Compile
+endef
+
 $(eval $(call KernelPackage,uio_pci_generic))
 
