@@ -25,7 +25,18 @@ include $(TOPDIR)/feeds/packages/devel/meson/meson.mk
 
 MESON_ARGS+=-Denable_docs=false
 
-CONFIG_TARGET_SUBTARGET:=native
+# Possible place for CPU ARCH tune:
+# nocona core2 nehalem corei7 westmere sandybridge corei7-avx 
+# ivybridge core-avx-i haswell core-avx2 broadwell skylake 
+# skylake-avx512 cannonlake icelake-client icelake-server bonnell 
+# atom silvermont slm knl knm x86-64 eden-x2 nano nano-1000 nano-2000 
+# nano-3000 nano-x2 eden-x4 nano-x4 k8 k8-sse3 opteron opteron-sse3 athlon64 
+# athlon64-sse3 athlon-fx amdfam10 barcelona bdver1 bdver2 bdver3 bdver4 
+# znver1 btver1 btver2 native
+#
+# native - works on all x86_64 platforms
+#
+CONFIG_TARGET_SUBTARGET:="native"
 
 define Package/libdpdk
   SECTION:=libs
