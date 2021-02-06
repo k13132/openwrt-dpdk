@@ -27,7 +27,7 @@ define KernelPackage/amd_iommu_v2
      CONFIG_AMD_IOMMU=y \
      CONFIG_IRQ_REMAP=y \
      CONFIG_AMD_IOMMU_V2=m
-  DEPENDS:= @PCI_SUPPORT @TARGET_x86_64 +kernel
+  DEPENDS:= @PCI_SUPPORT @TARGET_x86_64
   FILES:= $(LINUX_DIR)/drivers/iommu/amd_iommu_v2.ko
   AUTOLOAD:=$(call AutoProbe,amd_iommu_v2)
 endef
