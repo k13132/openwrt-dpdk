@@ -1,4 +1,4 @@
-# OpenWrt DPDK build packages
+# Data Plane Development Kit (DPDK) integration into OpenWrt
 
 This repository contains all necessary packages for the compilation of [DPDK](https://www.dpdk.org) on [OpenWrt](https://openwrt.org).
 
