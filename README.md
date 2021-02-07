@@ -1,10 +1,60 @@
 # OpenWrt DPDK build packages
 
-echo "src-git dpdkrepo https://github.com/k13132/openwrt-dpdk" >> feeds.conf
+This repository contains all necessary packages for the compilation of [DPDK](https://www.dpdk.org) on [OpenWrt](https://openwrt.org).
 
-./script/feeds update dpdkrepo
-./script/feeds install -a -p dpdkrepo
+Packages are assembled by information from https://doc.dpdk.org/guides/howto/openwrt.html
 
-Use libdpdk or dpdk-tools
+## Repository packages
 
+* **[dpdk](https://github.com/DPDK/dpdk)** - Data Plane Development Kit main package; package contains:
+  * libdpdk - DPDK librarioes
+  * dpdk-tools - DPDK tools
+* **[numactl](https://github.com/numactl/numactl)** - Simple NUMA policy support package
+* **kmod-amd_iommu_v2** - kernel-modules support of IOMMU for AMD processors; package produces _amd_iommu_v2.ko_
+* **kmod-uio_pci_generic** - kernel-modules support of The Userspace I/O; package produces - uio.ko, uio/uio_pci_generic.ko
+* **kmod-vfio-pci** - kernel-modules support of Virtual Function I/O for PCI interfaces; package produces - vfio.ko, vfio-pci.ko, vfio_iommu_type1.ko, vfio_virqfd.ko
+
+## Compilation & Installation
+
+### Requirements
+
+* Compilation can be done on OpenWrt 19.07 or newer.
+* OpenWrt and all packages must be compiled against **glibc**!
+
+### OpenWrt build configuration
+
+Make a system from [sources](https://github.com/openwrt/openwrt).
+
+* Select ``x86`` in ``Target System``
+* Select ``x86_64`` in ``Subtarget``
+* Select ``Build the OpenWrt SDK`` for cross-compilation environment
+* Select ``Use glibc`` in ``Advanced configuration options (for developers)`` then ``ToolChain Options`` and ``C Library implementation``
+
+
+### Add this repo to an OpenWrt feed.conf
+
+``` 
+echo "src-git dpdk_repo https://github.com/k13132/openwrt-dpdk" >> feeds.conf
+``` 
+
+### Update OpenWrt package feeds
+
+``` 
+./script/feeds update dpdk_repo
+./script/feeds install -a -p dpdk_repo
+```
+
+### Use/chose libdpdk, dpdk-tools packages
+
+``` 
+make menuconfig
+``` 
+
+### Compile DPDK packages
+
+``` 
 make package/dpdk/compile
+``` 
+
+
+
