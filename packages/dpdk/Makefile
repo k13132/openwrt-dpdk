@@ -35,7 +35,8 @@ MESON_ARGS+=-Denable_docs=false
 #
 # native - works on all x86_64 platforms
 #
-CONFIG_TARGET_SUBTARGET:="native"
+
+MESON_CPU:="native"
 
 define Package/libdpdk
   SECTION:=libs
