@@ -22,6 +22,7 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/meson.mk
 
+# Edit drivers filters by your own. Now it compile only Intel i40e and e1000 drivers. Events aren't compiled too.
 MESON_ARGS+=-Denable_docs=false -Denable_drivers=net/i40e,net/e1000 -Ddisable_drivers=event/*
 
 # Possible place for CPU ARCH tune:
