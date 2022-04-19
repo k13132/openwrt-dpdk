@@ -22,12 +22,14 @@ define KernelPackage/vfio-pci
   SUBMENU:=$(MM_MENU)
   TITLE:=VFIO support for PCI devices
   KCONFIG:=\
-      CONFIG_VFIO \
-      CONFIG_VFIO_IOMMU_TYPE1 \
-      CONFIG_VFIO_VIRQFD \
-      CONFIG_VFIO_NOIOMMU \
-      CONFIG_VFIO_PCI \
-      CONFIG_VFIO_PCI_MMAP
+      CONFIG_VFIO=y \
+      CONFIG_VFIO_IOMMU_TYPE1=y \
+      CONFIG_VFIO_VIRQFD=y \
+      CONFIG_VFIO_NOIOMMU=y \
+      CONFIG_VFIO_PCI=y \
+      CONFIG_VFIO_PCI_IGD=n \
+      CONFIG_VFIO_MDEV=n \
+      CONFIG_VFIO_PCI_MMAP=y
   DEPENDS:=@PCI_SUPPORT @TARGET_x86_64 +kmod-irqbypass
   FILES:= \
       $(LINUX_DIR)/drivers/vfio/vfio_virqfd.ko \

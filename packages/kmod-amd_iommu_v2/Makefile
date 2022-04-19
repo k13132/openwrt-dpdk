@@ -23,12 +23,17 @@ define KernelPackage/amd_iommu_v2
   SUBMENU:=$(MM_MENU)
   TITLE:=AMD IOMMU Version 2 driver
   KCONFIG:=\
-     CONFIG_IOMMU_SUPPORT \
-     CONFIG_AMD_IOMMU \
-     CONFIG_IRQ_REMAP \
-     CONFIG_AMD_IOMMU_V2
+     CONFIG_UACCE=n \
+     CONFIG_IOMMU_DEBUGFS=n \
+     CONFIG_INTEL_IOMMU=n \
+     CONFIG_HYPERV_IOMMU=n \
+     CONFIG_IOMMU_SUPPORT=y \
+     CONFIG_IOMMU_DEFAULT_PASSTHROUGH=y \
+     CONFIG_AMD_IOMMU=y \
+     CONFIG_IRQ_REMAP=y \
+     CONFIG_AMD_IOMMU_V2=y
   DEPENDS:= @PCI_SUPPORT @TARGET_x86_64
-  FILES:= $(LINUX_DIR)/drivers/iommu/amd_iommu_v2.ko
+  FILES:= $(LINUX_DIR)/drivers/iommu/amd/iommu_v2.ko
   AUTOLOAD:=$(call AutoProbe,amd_iommu_v2)
 endef
 
@@ -39,11 +44,9 @@ to use devices that suppor the PCI PRI and PASID interface.
 endef
 
 define Build/Configure
-	true
 endef
 
 define Build/Compile
-	true
 endef
 
 $(eval $(call KernelPackage,amd_iommu_v2))
