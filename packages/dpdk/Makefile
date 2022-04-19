@@ -22,7 +22,8 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/meson.mk
 
-MESON_ARGS+=-Denable_docs=false -Ddisable_drivers=event/*,net/* -Denable_drivers=net/i40e,net/igb
+MESON_ARGS+=-Denable_docs=false -Ddisable_drivers=event/*,net/* -Denable_drivers=net/i40e,net/e1000
+
 # Possible place for CPU ARCH tune:
 # nocona core2 nehalem corei7 westmere sandybridge corei7-avx 
 # ivybridge core-avx-i haswell core-avx2 broadwell skylake 
