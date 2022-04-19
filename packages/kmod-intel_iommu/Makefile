@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
-PKG_NAME:=amd_iommu_v2
+PKG_NAME:=intel_iommu
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_MAINTAINER:=Zbynek Kocur <zbynek.kocur@fel.cvut.cz>
@@ -19,31 +19,28 @@ include $(INCLUDE_DIR)/package.mk
 MM_MENU=Virtualization
 
 
-define KernelPackage/amd_iommu_v2
+define KernelPackage/intel_iommu
   SUBMENU:=$(MM_MENU)
-  TITLE:=AMD IOMMU Version 2 driver
+  TITLE:=INTEL IOMMU driver
   KCONFIG:=\
-     CONFIG_IOMMU_SUPPORT \
-     CONFIG_AMD_IOMMU \
-     CONFIG_IRQ_REMAP \
-     CONFIG_AMD_IOMMU_V2
+     CONFIG_IOMMU_SUPPORT=y \
+     CONFIG_IRQ_REMAP=y \
+     CONFIG_INTEL_IOMMU=y
   DEPENDS:= @PCI_SUPPORT @TARGET_x86_64
-  FILES:= $(LINUX_DIR)/drivers/iommu/amd_iommu_v2.ko
-  AUTOLOAD:=$(call AutoProbe,amd_iommu_v2)
+  FILES:= $(LINUX_DIR)/drivers/iommu/intel_iommu.ko
+  AUTOLOAD:=$(call AutoProbe,intel_iommu)
 endef
 
-define KernelPackage/amd_iommu_v2/description
-  This option enables support for the AMD IOMMUv2 features
+define KernelPackage/intel_iommu/description
+  This option enables support for the INTEL IOMMU features
 of the IOMMU hardware. Select this option if you want
 to use devices that suppor the PCI PRI and PASID interface.
 endef
 
 define Build/Configure
-	true
 endef
 
 define Build/Compile
-	true
 endef
 
-$(eval $(call KernelPackage,amd_iommu_v2))
+$(eval $(call KernelPackage,intel_iommu))

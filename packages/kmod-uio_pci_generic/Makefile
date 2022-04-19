@@ -22,8 +22,8 @@ define KernelPackage/uio_pci_generic
   SUBMENU:=$(MM_MENU)
   TITLE:=Generic driver for PCI 2.3 and PCI Express cards
       KCONFIG:= \
-      CONFIG_UIO=m \
-      CONFIG_UIO_PCI_GENERIC=m
+      CONFIG_UIO \
+      CONFIG_UIO_PCI_GENERIC
       DEPENDS:= @TARGET_x86_64
   FILES:= \
       $(LINUX_DIR)/drivers/uio/uio.ko \
