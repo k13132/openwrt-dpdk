@@ -10,15 +10,15 @@ Packages are assembled by information from https://doc.dpdk.org/guides/howto/ope
   * libdpdk - DPDK librarioes
   * dpdk-tools - DPDK tools
 * **[numactl](https://github.com/numactl/numactl)** - Simple NUMA policy support package
-* **kmod-amd_iommu_v2** - kernel-modules support of IOMMU for AMD processors; package produces _amd_iommu_v2.ko_
-* **kmod-uio_pci_generic** - kernel-modules support of The Userspace I/O; package produces - uio.ko, uio/uio_pci_generic.ko
+* **kmod-iommu_v2** - kernel-modules support of IOMMU for INTEL/AMD processors; package produces iommu_v2.ko
+* **kmod-uio_pci_generic** - kernel-modules support of The Userspace I/O; package produces - uio.ko, uio_pci_generic.ko
 * **kmod-vfio-pci** - kernel-modules support of Virtual Function I/O for PCI interfaces; package produces - vfio.ko, vfio-pci.ko, vfio_iommu_type1.ko, vfio_virqfd.ko
 
 ## Compilation & Installation
 
 ### Requirements
 
-* Compilation can be done on OpenWrt 19.07 or newer.
+* Compilation can be done on OpenWrt 22.03 or newer.
 * OpenWrt and all packages must be compiled against **glibc**!
 
 ### OpenWrt build configuration
