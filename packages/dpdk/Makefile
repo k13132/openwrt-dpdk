@@ -41,7 +41,7 @@ MESON_CPU:="native"
 define Package/libdpdk
   SECTION:=libs
   CATEGORY:=Libraries
-  DEPENDS:=+libnuma +libpcap +libopenssl +zlib +kmod-vfio-pci +kmod-uio_pci_generic +kmod-amd_iommu_v2
+  DEPENDS:=+libnuma +libpcap +libopenssl +zlib +jansson +kmod-vfio-pci +kmod-uio_pci_generic +kmod-amd_iommu_v2
   TITLE:=Set of libraries and drivers for fast packet processing
   URL:=https://www.dpdk.org
 endef
