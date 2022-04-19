@@ -27,8 +27,10 @@ define KernelPackage/vfio-pci
       CONFIG_VFIO_VIRQFD=m \
       CONFIG_VFIO_NOIOMMU=y \
       CONFIG_VFIO_PCI=m \
+      CONFIG_VFIO_PCI_IGD=n \
+      CONFIG_VFIO_MDEV=n \
       CONFIG_VFIO_PCI_MMAP=y
-  DEPENDS:=@PCI_SUPPORT @TARGET_x86_64 +kmod-irqbypass +kmod-amd_iommu_v2
+  DEPENDS:=@PCI_SUPPORT @TARGET_x86_64 +kmod-irqbypass
   FILES:= \
       $(LINUX_DIR)/drivers/vfio/vfio_virqfd.ko \
       $(LINUX_DIR)/drivers/vfio/vfio_iommu_type1.ko \

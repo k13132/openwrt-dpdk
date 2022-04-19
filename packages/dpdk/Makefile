@@ -17,11 +17,10 @@ PKG_MAINTAINER:=Zbynek Kocur <zbynek.kocur@fel.cvut.cz>
 PKG_LICENSE:=BSD-3-Clause
 PKG_LICENSE_FILES:=COPYING
 
-PKG_BUILD_DEPENDS:=meson/host
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
-include $(TOPDIR)/feeds/packages/devel/meson/meson.mk
+include $(INCLUDE_DIR)/meson.mk
 
 MESON_ARGS+=-Denable_docs=false
 
@@ -36,12 +35,13 @@ MESON_ARGS+=-Denable_docs=false
 #
 # native - works on all x86_64 platforms
 #
-CONFIG_TARGET_SUBTARGET:="native"
+
+MESON_CPU:="native"
 
 define Package/libdpdk
   SECTION:=libs
   CATEGORY:=Libraries
-  DEPENDS:=+libnuma +libpcap +libopenssl +zlib +kmod-vfio-pci +kmod-uio_pci_generic +kmod-amd_iommu_v2
+  DEPENDS:=+libnuma +libpcap +libopenssl +zlib +jansson
   TITLE:=Set of libraries and drivers for fast packet processing
   URL:=https://www.dpdk.org
 endef
