@@ -22,7 +22,7 @@ define KernelPackage/uio_pci_generic
   SUBMENU:=$(MM_MENU)
   TITLE:=Generic driver for PCI 2.3 and PCI Express cards
       KCONFIG:= \
-      CONFIG_UIO=y \
+      CONFIG_UIO=m \
       CONFIG_UIO_CIF=n \
       CONFIG_UIO_PDRV_GENIRQ=n \
       CONFIG_UIO_DMEM_GENIRQ=n \
@@ -32,7 +32,7 @@ define KernelPackage/uio_pci_generic
       CONFIG_UIO_PRUSS=n \
       CONFIG_UIO_MF624=n \
       CONFIG_UIO_HV_GENERIC=n\
-      CONFIG_UIO_PCI_GENERIC=y
+      CONFIG_UIO_PCI_GENERIC=m
       DEPENDS:= @TARGET_x86_64 @PCI_SUPPORT
   FILES:= \
       $(LINUX_DIR)/drivers/uio/uio.ko \

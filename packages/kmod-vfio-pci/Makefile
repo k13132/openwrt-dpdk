@@ -22,11 +22,11 @@ define KernelPackage/vfio-pci
   SUBMENU:=$(MM_MENU)
   TITLE:=VFIO support for PCI devices
   KCONFIG:=\
-      CONFIG_VFIO=y \
-      CONFIG_VFIO_IOMMU_TYPE1=y \
-      CONFIG_VFIO_VIRQFD=y \
+      CONFIG_VFIO=m \
+      CONFIG_VFIO_IOMMU_TYPE1=m \
+      CONFIG_VFIO_VIRQFD=m \
       CONFIG_VFIO_NOIOMMU=y \
-      CONFIG_VFIO_PCI=y \
+      CONFIG_VFIO_PCI=m \
       CONFIG_VFIO_PCI_IGD=n \
       CONFIG_VFIO_MDEV=n \
       CONFIG_VFIO_PCI_MMAP=y
