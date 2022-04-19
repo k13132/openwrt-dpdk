@@ -6,12 +6,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dpdk
-PKG_VERSION:=20.11
+PKG_VERSION:=22.03
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_URL:=https://codeload.github.com/DPDK/dpdk/tar.gz/v$(PKG_VERSION)?
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_HASH:=c29bb5710d068efd2bc2c51d73ced4d3ca0dc0f5473874350a0eb3d9c3e50af4
+PKG_HASH:=b85cfcb0e85196631959db4cc45eeaad5c32112eaaa3352606b344b85a53653f
 
 PKG_MAINTAINER:=Zbynek Kocur <zbynek.kocur@fel.cvut.cz>
 PKG_LICENSE:=BSD-3-Clause
@@ -22,7 +22,7 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/meson.mk
 
-MESON_ARGS+=-Denable_docs=false
+MESON_ARGS+=-Denable_docs=false -Ddisable_drivers=event/*,net/* -Denable_drivers=net/i40e -Denable_drivers=net/igb
 
 # Possible place for CPU ARCH tune:
 # nocona core2 nehalem corei7 westmere sandybridge corei7-avx 
