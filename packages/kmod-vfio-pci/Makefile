@@ -45,9 +45,11 @@ use of PCI drivers using the VFIO framework.
 endef
 
 define Build/Configure
+  true
 endef
 
 define Build/Compile
+  true
 endef
 
 $(eval $(call KernelPackage,vfio-pci))
