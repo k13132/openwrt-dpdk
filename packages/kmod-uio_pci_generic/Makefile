@@ -47,9 +47,11 @@ for virtualization scenarios.
 endef
 
 define Build/Configure
+  true
 endef
 
 define Build/Compile
+  true
 endef
 
 $(eval $(call KernelPackage,uio_pci_generic))
