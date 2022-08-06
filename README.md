@@ -120,10 +120,8 @@ config KERNEL_USE_PERCPU_NUMA_NODE_ID
 config KERNEL_ACPI_NUMA
         bool "KERNEL_CONFIG_ACPI_NUMA"
         default y
-
-### Compile firmware and DPDK packages
 ```
-
+### Compile firmware and DPDK packages
 ``` 
 make -j1 V=s
 ``` 
