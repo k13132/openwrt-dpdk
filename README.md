@@ -50,7 +50,7 @@ Make a system from [sources](https://github.com/openwrt/openwrt).
 
 ```
 vi .config
-```
+
 # Kernel build options
 CONFIG_KERNEL_CONFIG_VFIO_IOMMU_TYPE1=y
 CONFIG_KERNEL_CONFIG_VFIO_VIRQFD=y
@@ -63,10 +63,11 @@ CONFIG_KERNEL_CONFIG_HUGETLB_PAGE=y
 CONFIG_KERNEL_CONFIG_PROC_PAGE_MONITOR=y
 CONFIG_KERNEL_CONFIG_UIO=y
 # end of Kernel build options
+```
 
 ```
 vi config/Config-kernel.in
-```
+
 config KERNEL_CONFIG_VFIO_IOMMU_TYPE1
         bool "KERNEL_CONFIG_VFIO_IOMMU_TYPE1"
         default y
@@ -121,6 +122,7 @@ config KERNEL_ACPI_NUMA
         default y
 
 ### Compile firmware and DPDK packages
+```
 
 ``` 
 make -j1 V=s
