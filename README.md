@@ -30,8 +30,8 @@ echo "src-git dpdk_repo https://github.com/k13132/openwrt-dpdk" >> feeds.conf.de
 ### Update OpenWrt package feeds
 
 ``` 
-./scripts/feeds update dpdk_repo
-./scripts/feeds install -a -p dpdk_repo
+./scripts/feeds update -a
+./scripts/feeds install -a
 ```
 
 ### Use/chose libdpdk, dpdk-tools packages
@@ -51,7 +51,7 @@ Make a system from [sources](https://github.com/openwrt/openwrt).
 ### Compile DPDK packages
 
 ``` 
-make package/dpdk/compile
+make -j1 V=s
 ``` 
 
 
