@@ -61,7 +61,6 @@ CONFIG_KERNEL_CONFIG_VFIO_PCI_MMAP=y
 CONFIG_KERNEL_CONFIG_HUGETLBFS=y
 CONFIG_KERNEL_CONFIG_HUGETLB_PAGE=y
 CONFIG_KERNEL_CONFIG_PROC_PAGE_MONITOR=y
-CONFIG_KERNEL_CONFIG_UIO=y
 # end of Kernel build options
 ```
 
@@ -95,30 +94,6 @@ config KERNEL_CONFIG_HUGETLB_PAGE
         default y
 config KERNEL_CONFIG_PROC_PAGE_MONITOR
         bool "KERNEL_CONFIG_PROC_PAGE_MONITOR"
-        default y
-
-config KERNEL_CONFIG_UIO
-        bool "KERNEL_CONFIG_UIO"
-        default y
-
-config KERNEL_NUMA_BALANCING
-        bool "KERNEL_CONFIG_NUMA_BALANCING"
-        default y
-
-config KERNEL_NUMA
-        bool "KERNEL_CONFIG_NUMA"
-        default y
-config KERNEL_AMD_NUMA
-        bool "KERNEL_CONFIG_AMD_NUMA"
-        default y
-config KERNEL_X86_64_ACPI_NUMA
-        bool "KERNEL_CONFIG_X86_64_ACPI_NUMA"
-        default y
-config KERNEL_USE_PERCPU_NUMA_NODE_ID
-        bool "KERNEL_CONFIG_USE_PERCPU_NUMA_NODE_ID"
-        default y
-config KERNEL_ACPI_NUMA
-        bool "KERNEL_CONFIG_ACPI_NUMA"
         default y
 ```
 ### Compile firmware and DPDK packages
