@@ -41,7 +41,7 @@ make menuconfig
 ``` 
 ### OpenWrt build configuration
 
-Make a system from [sources](https://github.com/openwrt/openwrt).
+Make a system from [sources](https://github.com/openwrt/openwrt/tree/openwrt-22.03).
 
 * Select ``x86`` in ``Target System``
 * Select ``x86_64`` in ``Subtarget``
