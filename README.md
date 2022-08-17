@@ -18,8 +18,8 @@ Packages are assembled by information from https://doc.dpdk.org/guides/howto/ope
 
 ### Requirements
 
-* Compilation can be done on [OpenWrt-22.03](https://github.com/openwrt/openwrt/tree/openwrt-22.03).
-* OpenWrt and all packages must be compiled against **glibc**!
+* Compilation can be done on [OpenWrt-22.03](https://github.com/openwrt/openwrt/tree/openwrt-22.03)
+* OpenWrt and all packages must be compiled against **glibc**
 
 ### Add this repo to an OpenWrt feed.conf.default
 
