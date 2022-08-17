@@ -18,13 +18,13 @@ Packages are assembled by information from https://doc.dpdk.org/guides/howto/ope
 
 ### Requirements
 
-* Compilation can be done on [OpenWrt-22.03](https://github.com/openwrt/openwrt/tree/openwrt-22.03) or newer.
+* Compilation can be done on [OpenWrt-22.03](https://github.com/openwrt/openwrt/tree/openwrt-22.03).
 * OpenWrt and all packages must be compiled against **glibc**!
 
 ### Add this repo to an OpenWrt feed.conf.default
 
 ``` 
-echo "src-git dpdk_repo https://github.com/k13132/openwrt-dpdk" >> feeds.conf.default
+echo "src-git dpdk_repo https://github.com/aikonlee/openwrt-dpdk" >> feeds.conf.default
 ``` 
 
 ### Update OpenWrt package feeds
