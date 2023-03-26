@@ -6,12 +6,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dpdk
-PKG_VERSION:=22.07
+PKG_VERSION:=22.11
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_URL:=https://codeload.github.com/DPDK/dpdk/tar.gz/v$(PKG_VERSION)?
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_HASH:=653b02c71948f7a12b0b1accf3016dfb9ddf34cbc98755698415dcca530fc5ba
+PKG_HASH:=ed8b2a2b153f0311ffa065d35af29a098367af44a22b3c33e191e1a74211f2e3
 
 PKG_MAINTAINER:=Zbynek Kocur <zbynek.kocur@fel.cvut.cz>
 PKG_LICENSE:=BSD-3-Clause
@@ -42,7 +42,7 @@ MESON_CPU:="native"
 define Package/libdpdk
   SECTION:=libs
   CATEGORY:=Libraries
-  DEPENDS:=+libnuma +libpcap +libopenssl +zlib +jansson +libelf
+  DEPENDS:=+libnuma +libpcap +libopenssl +zlib +jansson +libelf +libarchive +libbsd
   TITLE:=Set of libraries and drivers for fast packet processing
   URL:=https://www.dpdk.org
 endef
