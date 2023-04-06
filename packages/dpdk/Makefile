@@ -42,7 +42,7 @@ MESON_CPU:="native"
 define Package/libdpdk
   SECTION:=libs
   CATEGORY:=Libraries
-  DEPENDS:=+libnuma +libpcap +libopenssl +zlib +jansson +libelf +libarchive +libbsd
+  DEPENDS:=+libnuma +libpcap +libopenssl +zlib +jansson +libelf +libarchive +libbsd +libkmod
   TITLE:=Set of libraries and drivers for fast packet processing
   URL:=https://www.dpdk.org
 endef
