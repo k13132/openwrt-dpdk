@@ -35,8 +35,9 @@ define KernelPackage/vfio-pci
       $(LINUX_DIR)/drivers/vfio/vfio_virqfd.ko \
       $(LINUX_DIR)/drivers/vfio/vfio_iommu_type1.ko \
       $(LINUX_DIR)/drivers/vfio/vfio.ko \
-      $(LINUX_DIR)/drivers/vfio/pci/vfio-pci.ko
-  AUTOLOAD:=$(call AutoProbe,vfio_virqfd vfio_iommu_type1 vfio vfio-pci)
+      $(LINUX_DIR)/drivers/vfio/pci/vfio-pci.ko \
+      $(LINUX_DIR)/drivers/vfio/pci/vfio-pci-core.ko
+  AUTOLOAD:=$(call AutoProbe,vfio_virqfd vfio_iommu_type1 vfio vfio-pci vfio-pci-core)
 endef
 
 define KernelPackage/vfio-pci/description
