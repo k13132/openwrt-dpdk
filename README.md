@@ -18,7 +18,7 @@ Packages are assembled by information from https://doc.dpdk.org/guides/howto/ope
 
 ### Requirements
 
-* Compilation can be done on OpenWrt 22.03 or newer.
+* Compilation can be done on OpenWrt 21.02 and 22.03.
 * OpenWrt and all packages must be compiled against **glibc**!
 
 ### OpenWrt build configuration
