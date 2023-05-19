@@ -25,24 +25,10 @@ include $(INCLUDE_DIR)/meson.mk
 # Edit drivers filters by your own. Now it compile only Intel i40e and e1000 drivers. Events aren't compiled too.
 MESON_ARGS+=-Denable_docs=false -Denable_drivers=net/i40e,net/e1000,net/virtio -Ddisable_drivers=event/*
 
-# Possible place for CPU ARCH tune:
-# nocona core2 nehalem corei7 westmere sandybridge corei7-avx 
-# ivybridge core-avx-i haswell core-avx2 broadwell skylake 
-# skylake-avx512 cannonlake icelake-client icelake-server bonnell 
-# atom silvermont slm knl knm x86-64 eden-x2 nano nano-1000 nano-2000 
-# nano-3000 nano-x2 eden-x4 nano-x4 k8 k8-sse3 opteron opteron-sse3 athlon64 
-# athlon64-sse3 athlon-fx amdfam10 barcelona bdver1 bdver2 bdver3 bdver4 
-# znver1 btver1 btver2 native
-#
-# native - works on all x86_64 platforms
-#
-
-MESON_CPU:="native"
-
 define Package/libdpdk
   SECTION:=libs
   CATEGORY:=Libraries
-  DEPENDS:=+libnuma +libpcap +libopenssl +zlib +jansson +libelf +libarchive +libbsd +libkmod
+  DEPENDS:=@(x86_64||arm||aarch64) +@KERNEL_HUGETLB_PAGE +librt +libpthread +libbpf +libpcap +libopenssl +zlib +jansson +libelf +libarchive +libbsd +libkmod
   TITLE:=Set of libraries and drivers for fast packet processing
   URL:=https://www.dpdk.org
 endef
@@ -55,7 +41,7 @@ endef
 define Package/dpdk-tools
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libdpdk +@KERNEL_HUGETLB_PAGE +python3-light
+  DEPENDS:=@(x86_64||arm||aarch64) +libdpdk +python3-light
   TITLE:=Set of tools for fast packet processing based on DPDK
   URL:=https://www.dpdk.org
 endef
@@ -90,6 +76,8 @@ define Package/dpdk-tools/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-devbind.py $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-pdump $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-proc-info $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-testpmd $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-test-flow-perf $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,libdpdk))
