@@ -26,7 +26,7 @@ include $(INCLUDE_DIR)/meson.mk
 MESON_ARGS+=-Denable_docs=false -Denable_drivers=net/i40e,net/e1000,net/virtio -Ddisable_drivers=event/*
 
 # Required by MUSL for building
-TARGET_CFLAGS+=-D_LARGEFILE64_SOURCE
+TARGET_CFLAGS+=-D_GNU_SOURCE
 
 define Package/libdpdk
   SECTION:=libs
