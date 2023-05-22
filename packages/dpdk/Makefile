@@ -25,6 +25,9 @@ include $(INCLUDE_DIR)/meson.mk
 # Edit drivers filters by your own. Now it compile only Intel i40e and e1000 drivers. Events aren't compiled too.
 MESON_ARGS+=-Denable_docs=false -Denable_drivers=net/i40e,net/e1000,net/virtio -Ddisable_drivers=event/*
 
+# Required by MUSL for building
+TARGET_CFLAGS+=-D_LARGEFILE64_SOURCE
+
 define Package/libdpdk
   SECTION:=libs
   CATEGORY:=Libraries
