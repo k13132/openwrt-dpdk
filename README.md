@@ -9,7 +9,7 @@ Packages are assembled by information from https://doc.dpdk.org/guides/howto/ope
 * **[dpdk](https://github.com/DPDK/dpdk)** - Data Plane Development Kit main package; package contains:
   * libdpdk - DPDK librarioes
   * dpdk-tools - DPDK tools
-* **[numactl](https://github.com/numactl/numactl)** - Simple NUMA policy support package
+* **[numactl](https://github.com/numactl/numactl)** - Simple NUMA policy support package (optional)
 * **kmod-iommu_v2** - kernel-modules support of IOMMU for INTEL/AMD processors; package produces iommu_v2.ko
 * **kmod-uio_pci_generic** - kernel-modules support of The Userspace I/O; package produces - uio.ko, uio_pci_generic.ko
 * **kmod-vfio-pci** - kernel-modules support of Virtual Function I/O for PCI interfaces; package produces - vfio.ko, vfio-pci.ko, vfio_iommu_type1.ko, vfio_virqfd.ko
@@ -19,17 +19,10 @@ Packages are assembled by information from https://doc.dpdk.org/guides/howto/ope
 ### Requirements
 
 * Compilation can be done on OpenWrt 21.02 and 22.03.
-* OpenWrt and all packages must be compiled against **glibc**!
 
 ### OpenWrt build configuration
 
-Make a system from [sources](https://github.com/openwrt/openwrt).
-
-* Select ``x86`` in ``Target System``
-* Select ``x86_64`` in ``Subtarget``
-* Select ``Build the OpenWrt SDK`` for cross-compilation environment
-* Select ``Use glibc`` in ``Advanced configuration options (for developers)`` then ``ToolChain Options`` and ``C Library implementation``
-
+Make a system from [sources](https://github.com/openwrt/openwrt). Use branches 21.02 or 22.03. Master branch is not supported yet.
 
 ### Add this repo to an OpenWrt feed.conf
 
