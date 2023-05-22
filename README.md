@@ -9,10 +9,10 @@ Packages are assembled by information from https://doc.dpdk.org/guides/howto/ope
 * **[dpdk](https://github.com/DPDK/dpdk)** - Data Plane Development Kit main package; package contains:
   * libdpdk - DPDK librarioes
   * dpdk-tools - DPDK tools
-* **[numactl](https://github.com/numactl/numactl)** - Simple NUMA policy support package (optional)
-* **kmod-iommu_v2** - kernel-modules support of IOMMU for INTEL/AMD processors; package produces iommu_v2.ko
-* **kmod-uio_pci_generic** - kernel-modules support of The Userspace I/O; package produces - uio.ko, uio_pci_generic.ko
-* **kmod-vfio-pci** - kernel-modules support of Virtual Function I/O for PCI interfaces; package produces - vfio.ko, vfio-pci.ko, vfio_iommu_type1.ko, vfio_virqfd.ko
+* **kmod-iommu_v2** (required) - kernel-modules support of IOMMU for INTEL/AMD processors; package produces iommu_v2.ko
+* **kmod-vfio** (required) - kernel-modules support of Virtual Function I/O for PCI interfaces; package produces - vfio.ko, vfio-pci.ko, vfio_iommu_type1.ko, vfio_virqfd.ko
+* **[numactl](https://github.com/numactl/numactl)** (optional) - Simple NUMA policy support package
+* **kmod-uio_pci_generic** (optional) - kernel-modules support of The Userspace I/O; package produces - uio.ko, uio_pci_generic.ko
 
 ## Compilation & Installation
 
@@ -22,7 +22,7 @@ Packages are assembled by information from https://doc.dpdk.org/guides/howto/ope
 
 ### OpenWrt build configuration
 
-Make a system from [sources](https://github.com/openwrt/openwrt). Use branches 21.02 or 22.03. Master branch is not supported yet.
+Make a system from [sources](https://github.com/openwrt/openwrt). Use branches 21.02 or 22.03. 
 
 ### Add this repo to an OpenWrt feed.conf
 
