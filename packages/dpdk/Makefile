@@ -6,12 +6,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dpdk
-PKG_VERSION:=22.11
+PKG_VERSION:=23.03
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_URL:=https://codeload.github.com/DPDK/dpdk/tar.gz/v$(PKG_VERSION)?
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_HASH:=ed8b2a2b153f0311ffa065d35af29a098367af44a22b3c33e191e1a74211f2e3
+PKG_HASH:=8a8fa67941b1e0d428937f9068f401457e4e4fd576031479450da065385b332c
 
 PKG_MAINTAINER:=Zbynek Kocur <zbynek.kocur@fel.cvut.cz>
 PKG_LICENSE:=BSD-3-Clause
@@ -25,24 +25,13 @@ include $(INCLUDE_DIR)/meson.mk
 # Edit drivers filters by your own. Now it compile only Intel i40e and e1000 drivers. Events aren't compiled too.
 MESON_ARGS+=-Denable_docs=false -Denable_drivers=net/i40e,net/e1000,net/virtio -Ddisable_drivers=event/*
 
-# Possible place for CPU ARCH tune:
-# nocona core2 nehalem corei7 westmere sandybridge corei7-avx 
-# ivybridge core-avx-i haswell core-avx2 broadwell skylake 
-# skylake-avx512 cannonlake icelake-client icelake-server bonnell 
-# atom silvermont slm knl knm x86-64 eden-x2 nano nano-1000 nano-2000 
-# nano-3000 nano-x2 eden-x4 nano-x4 k8 k8-sse3 opteron opteron-sse3 athlon64 
-# athlon64-sse3 athlon-fx amdfam10 barcelona bdver1 bdver2 bdver3 bdver4 
-# znver1 btver1 btver2 native
-#
-# native - works on all x86_64 platforms
-#
-
-MESON_CPU:="native"
+# Required by MUSL for building
+TARGET_CFLAGS+=-D_GNU_SOURCE
 
 define Package/libdpdk
   SECTION:=libs
   CATEGORY:=Libraries
-  DEPENDS:=+libnuma +libpcap +libopenssl +zlib +jansson +libelf +libarchive +libbsd +libkmod
+  DEPENDS:=@(x86_64||arm||aarch64) +@KERNEL_HUGETLB_PAGE +librt +libpthread +libbpf +libpcap +libopenssl +zlib +jansson +libelf +libarchive +libbsd +libkmod
   TITLE:=Set of libraries and drivers for fast packet processing
   URL:=https://www.dpdk.org
 endef
@@ -55,7 +44,7 @@ endef
 define Package/dpdk-tools
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libdpdk +@KERNEL_HUGETLB_PAGE +python3-light
+  DEPENDS:=@(x86_64||arm||aarch64) +libdpdk +python3-light
   TITLE:=Set of tools for fast packet processing based on DPDK
   URL:=https://www.dpdk.org
 endef
@@ -90,6 +79,8 @@ define Package/dpdk-tools/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-devbind.py $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-pdump $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-proc-info $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-testpmd $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/dpdk-test-flow-perf $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,libdpdk))
