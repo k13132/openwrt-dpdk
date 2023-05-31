@@ -21,9 +21,9 @@ PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/meson.mk
+include libdpdk.mk
 
-# Edit drivers filters by your own. Now it compile only Intel i40e and e1000 drivers. Events aren't compiled too.
-MESON_ARGS+=-Denable_docs=false -Denable_drivers=net/i40e,net/e1000,net/virtio -Ddisable_drivers=event/*
+MESON_CPU:=armv8-a
 
 # Required by MUSL for building
 ifneq ($(CONFIG_USE_MUSL),)
@@ -33,7 +33,7 @@ endif
 define Package/libdpdk
   SECTION:=libs
   CATEGORY:=Libraries
-  DEPENDS:=@(x86_64||arm||aarch64) +@KERNEL_HUGETLB_PAGE +librt +libpthread +libbpf +libpcap +libopenssl +zlib +jansson +libelf +libarchive +libbsd +libkmod
+  DEPENDS:=@(x86_64||aarch64) +@KERNEL_HUGETLB_PAGE +librt +libpthread +libbpf +libpcap +libopenssl +zlib +jansson +libelf +libarchive +libbsd +libkmod +libnuma
   TITLE:=Set of libraries and drivers for fast packet processing
   URL:=https://www.dpdk.org
 endef
@@ -46,7 +46,7 @@ endef
 define Package/dpdk-tools
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=@(x86_64||arm||aarch64) +libdpdk +python3-light
+  DEPENDS:=@(x86_64||aarch64) +libdpdk +python3-light
   TITLE:=Set of tools for fast packet processing based on DPDK
   URL:=https://www.dpdk.org
 endef
