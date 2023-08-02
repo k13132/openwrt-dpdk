@@ -32,13 +32,13 @@ define Package/numactl
    CATEGORY:=Utilities
    TITLE:=Control NUMA policy for processes or shared memory
    URL:=https://github.com/numactl/numactl
-   DEPENDS:=@TARGET_x86_64 +libpthread +libstdcpp +libc +librt +libnuma
+   DEPENDS:=@(x86_64||aarch64) +libpthread +libstdcpp +libc +librt +libnuma
 endef
 
 
 define Package/numactl/description
-  Simple NUMA policy support. It consists of a numactl program to 
-run other programs with a specific NUMA policyi. 
+  Simple NUMA policy support. It consists of a numactl program to
+run other programs with a specific NUMA policy.
 endef
 
 define Package/libnuma
@@ -57,10 +57,10 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/*.h $(1)/usr/include/
-	
+
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/*.{a,so*} $(1)/usr/lib/
-	
+
 	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/numa.pc $(1)/usr/lib/pkgconfig/
 endef
