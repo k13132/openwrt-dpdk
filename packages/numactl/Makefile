@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=numactl
-PKG_VERSION:=2.0.16
+PKG_VERSION:=2.0.17
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_URL:=https://codeload.github.com/numactl/numactl/tar.gz/v$(PKG_VERSION)?
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_HASH:=a35c3bdb3efab5c65927e0de5703227760b1101f5e27ab741d8f32b3d5f0a44c
+PKG_HASH:=af22829cda8b5bdee3d280e61291697bbd3f9bd372afdf119c9348b88369d40b
 
 PKG_MAINTAINER:=Zbynek Kocur <zbynek.kocur@fel.cvut.cz>
 PKG_LICENSE:=GPL-2.0-or-later
@@ -45,6 +45,7 @@ define Package/libnuma
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=NUMA policy library
+  DEPENDS:=+libatomic
 endef
 
 define Package/libnuma/description
