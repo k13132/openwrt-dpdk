@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021      Zbynek Kocur
+# Copyright (C) 2024      Zbynek Kocur
 # 
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=numactl
-PKG_VERSION:=2.0.17
+PKG_VERSION:=2.0.18
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_URL:=https://codeload.github.com/numactl/numactl/tar.gz/v$(PKG_VERSION)?
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_HASH:=af22829cda8b5bdee3d280e61291697bbd3f9bd372afdf119c9348b88369d40b
+PKG_HASH:=8cd6c13f3096e9c2293c1d732f56e2aa37a7ada1a98deed3fac7bd6da1aaaaf6
 
 PKG_MAINTAINER:=Zbynek Kocur <zbynek.kocur@fel.cvut.cz>
 PKG_LICENSE:=GPL-2.0-or-later
