@@ -1,8 +1,8 @@
 # Data Plane Development Kit (DPDK) integration into OpenWrt
 
-This repository contains all necessary packages for the compilation of [DPDK](https://www.dpdk.org) on [OpenWrt](https://openwrt.org).
+This repository contains all necessary packages for the compilation of [DPDK](https://www.dpdk.org) on [OpenWrt](https://openwrt.org). CPU architectures x86_64 and aarch64 are supported.
 
-Packages are assembled by information from https://doc.dpdk.org/guides/howto/openwrt.html
+Packages are assembled by information from https://doc.dpdk.org/guides/howto/openwrt.html.
 
 ## Repository packages
 
@@ -52,6 +52,3 @@ make menuconfig
 ``` 
 make package/dpdk/compile -j$((`nproc`+1))
 ``` 
-
-
-
