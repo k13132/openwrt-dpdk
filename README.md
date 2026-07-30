@@ -9,26 +9,24 @@ Packages are assembled by information from https://doc.dpdk.org/guides/howto/ope
 * **[dpdk](https://github.com/DPDK/dpdk)** - Data Plane Development Kit main package; package contains:
   * libdpdk - DPDK librarioes
   * dpdk-tools - DPDK tools
-* **kmod-iommu_v2** (this pkg required for 21.02, 22.03) - kernel-modules support of IOMMU for INTEL/AMD processors; package produces iommu_v2.ko
-* **kmod-vfio** (this pkg required for 21.02, 22.03) - kernel-modules support of Virtual Function I/O for PCI interfaces; package produces - vfio.ko, vfio-pci.ko, vfio_iommu_type1.ko, vfio_virqfd.ko
 * **[numactl](https://github.com/numactl/numactl)** (required) - Simple NUMA policy support package
 
-OpenWrt 23 and newer has **kmod-iommu_v2** and **kmod-vfio** directly in menuconfig.
+OpenWrt 23 and newer has packages **kmod-iommu_v2** (kernel-modules support of IOMMU for INTEL/AMD processors) and **kmod-vfio** (kernel-modules support of Virtual Function I/O for PCI interfaces) directly in menuconfig.
 
 ## Compilation & Installation
 
 ### Requirements
 
-* Compilation can be done on OpenWrt 21.02, 22.03 and 23.05.
+* Compilation can be done on OpenWrt 23.05 and newer.
 
 ### OpenWrt build configuration
 
-Make a system from [sources](https://github.com/openwrt/openwrt). Use branches 21.02, 22.03 or 23.05. 
+Make a system from [sources](https://github.com/openwrt/openwrt). Use branches 23.05 or newer. 
 
 ### Add this repo to OpenWrt feed.conf
 
 ``` 
-echo "src-git dpdk_repo https://github.com/k13132/openwrt-dpdk" >> feeds.conf
+echo "src-git dpdk_repo https://github.com/k13132/openwrt-dpdk;openwrt_23+" >> feeds.conf
 ``` 
 
 ### Update OpenWrt package feeds
