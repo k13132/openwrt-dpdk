@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dpdk
-PKG_VERSION:=24.03
+PKG_VERSION:=26.03
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_URL:=https://codeload.github.com/DPDK/dpdk/tar.gz/v$(PKG_VERSION)?
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_HASH:=1dcbddec31ea0abd1bb8fe9bed2187272fb8d719443332b5d6c36162c42120f8
+PKG_HASH:=28a9cce7ffaf6973a3dd5b7176887e764d4a0d257774f5973923ef3ae935653e
 
 PKG_MAINTAINER:=Zbynek Kocur <zbynek.kocur@fel.cvut.cz>
 PKG_LICENSE:=BSD-3-Clause
