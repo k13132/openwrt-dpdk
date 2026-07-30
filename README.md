@@ -26,7 +26,7 @@ Make a system from [sources](https://github.com/openwrt/openwrt). Use branches 2
 ### Add this repo to OpenWrt feed.conf
 
 ``` 
-echo "src-git dpdk_repo https://github.com/k13132/openwrt-dpdk" >> feeds.conf
+echo "src-git dpdk_repo https://github.com/k13132/openwrt-dpdk;openwrt_22" >> feeds.conf
 ``` 
 
 ### Update OpenWrt package feeds
