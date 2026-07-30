@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2024      Zbynek Kocur
+# Copyright (C) 2026      Zbynek Kocur
 # 
 # This is free software, licensed under the 3-Clause BSD License.
 # See /LICENSE for more information.
@@ -148,6 +148,7 @@ DRIVERS:= \
 
 MESON_ARGS+= \
 	-Denable_docs=false \
+	-Ddefault_library=static \
 	$(if $(CONFIG_aarch64), -Dplatform=$(PLATFORM)) \
 	$(if $(CONFIG_x86_64),-Dplatform=generic -Dcpu_instruction_set=$(CPU_INST)) \
 	-Denable_drivers=$(subst $(SPACE),$(COMMA),$(strip $(DRIVERS))) \
