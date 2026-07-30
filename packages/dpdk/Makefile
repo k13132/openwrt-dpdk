@@ -148,6 +148,7 @@ DRIVERS:= \
 
 MESON_ARGS+= \
 	-Denable_docs=false \
+	-Ddefault_library=static \
 	$(if $(CONFIG_aarch64), -Dplatform=$(PLATFORM)) \
 	$(if $(CONFIG_x86_64),-Dplatform=generic -Dcpu_instruction_set=$(CPU_INST)) \
 	-Denable_drivers=$(subst $(SPACE),$(COMMA),$(strip $(DRIVERS))) \
